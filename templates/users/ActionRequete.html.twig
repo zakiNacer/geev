@@ -1,0 +1,30 @@
+
+    <div class="text-center">
+        <h5> Demande effectué</h5>
+    </div>
+     {% for categorie in categorieDemande  %}
+        <div class="demande_categorie">
+            <div class="categorie_container">
+                <p class="demande_categorie_title">{{categorie[0].getNom()}}</p>
+
+                <div class="categorie_content">
+                            <div class="demande_left">
+                                <div class="demande_categorie_img_container">
+                                    <img src="" class="demande_categorie_img">
+                                </div>
+                            </div>
+                            <div class="demande_right">
+                                <div class="produits_list">
+                                                    
+                                {% for produit in categorie[1]  %}             
+                                    <div class="produit_item">
+                                        <img src="" class="produit_item_img">
+                                        <p class="produit_item_title">{{ produit.getNomPdroduit() }}</p>
+                                    </div>
+                                {% endfor %}        
+                                </div>
+                            </div>
+                </div>
+            </div>
+         </div>
+{% endfor %}    

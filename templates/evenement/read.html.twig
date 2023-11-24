@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{evenement.getNom()}}{% endblock %}
+
+{% block body %}
+<div class="personalised_container">
+    <div class="evenement_content">
+        <h3 class="evenement-title">L'évènement : {{evenement.getNom()}}</h3>
+        
+        <p>
+            Description evenement description evenement description evenement
+        </p>  
+
+
+        <form class="evenement_demandes" action={{path('app_evenement', {'id':evenement.id})}} method="post">
+            {% block formContent %}
+            
+            {% endblock %}
+        </form>
+
+        <script>
+            const allCategories = document.querySelectorAll('.demande_left');
+            for(let ind=0; ind<allCategories.length; ind++)
+                allCategories[ind].addEventListener('click', function(){
+                    if(!this.classList.contains('categorie_chosen')){
+                        this.classList.add('categorie_chosen');
+                    }
+                    else{
+                        this.classList.remove('categorie_chosen');
+                        unselectCategoryProducts(this);
+                    }
+                });
+
+            const allProduits = document.querySelectorAll('.produit_item');
+            for(let ind=0; ind<allProduits.length; ind++)
+                allProduits[ind].addEventListener('click', function () { 
+                    if(!this.classList.contains('produit_selected')){
+                        this.classList.add('produit_selected');
+                        this.querySelector('.produit_checkbox').checked = true;
+                    }
+                    else{
+                        this.classList.remove('produit_selected');
+                        this.querySelector('.produit_checkbox').checked = false;
+                    }
+                });
+
+            function unselectCategoryProducts(category){
+                const productsList = category.parentElement.querySelector('.produits_list').children;
+                for(let ind=0; ind<productsList.length; ind++){
+                    productsList[ind].classList.remove('produit_selected');
+                }
+            }
+        </script>
+    </div>
+</div>
+{% endblock %}

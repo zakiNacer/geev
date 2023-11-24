@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{ asset('assets/styles/Users.css') }}>
+{% endblock %}
+
+
+{% block body %}
+<div class="container users-container">
+  
+    <div class="mt-5 user-space-container d-flex justify-content-between flex-wrap gap-3">
+        <h3>Bonjour <span class="nomprenom">{{(app.user.nom)}} {{(app.user.prenom)}}</span>, et bienvenue sur votre espace personnel</h3>
+        <a class="logout_button" href="{{ path('app_logout') }}">Déconnexion</a>
+    </div>
+
+    <div class="mt-5 user-space-container">
+        <h5 class="user-space-title">Evènements</h5>
+        {% if not evenement %}
+            <p class="mt-2">Vous ne participer à aucun évènement en ce moment</p>
+            <br>
+            <a class="main_left_link" href="/evenements">Je participe</a>
+        {% else %}
+            <p class="mt-2">Voici l'évènement auquel vous participez en ce moment</p>
+            
+            <div class="mt-2 gradient-cards">
+                <div class="card">
+                    <div class="container-card bg-blue-box">
+                        <img class="img-card" src="{{asset('images/don.jpg')}}">
+
+                        
+                        <rect x="1" y="1" width="118" height ="118" rx="24" fill="url(#paint0_linear_1366_4582)" fill-opacity="0.15" stroke="url(#paint1_radial_1366_4582)" stroke-width="2"></rect>
+                        <path d="M90.9405 64.775L88.0155 69.55L85.1155 64.775H80.0655L85.5155 72.85L79.5905 82H84.4905L88.0155 76.175L91.5155 82H96.4405L90.4905 72.85L95.9405 64.775H90.9405Z" fill="#87A1FF"></path>
+                        <path d="M44.9833 35.52L27.3433 43.92V52.53L35.1833 49.17V82H44.9833V35.52ZM71.37 35.52L53.73 43.92V52.53L61.57 49.17V82H71.37V35.52Z" fill="#87A1FF"></path>
+                        <defs>
+                            <linearGradient id="paint0_linear_1366_4582" x1="120.194" y1="119.827" x2="-13.1225" y2="17.1841" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#61A0FF" stop-opacity="0.7"></stop>
+                            <stop offset="0.489583" stop-color="#61A0FF" stop-opacity="0"></stop>
+                            <stop offset="1" stop-color="#61A0FF" stop-opacity="0.7"></stop>
+                            </linearGradient>
+                            <radialGradient id="paint1_radial_1366_4582" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(60 60) rotate(96.8574) scale(122.674 149.921)">
+                            <stop stop-color="#87A1FF"></stop>
+                            <stop offset="1" stop-color="#16161D" stop-opacity="0.2"></stop>
+                            </radialGradient>
+                        </defs>
+                        </svg>
+                        <p class="card-title">{{evenement.getNom()}}</p>
+                        <h5 class="card-description">{{evenement.getLieuEvenement()}}</h5>
+                        <p class="card-description">{{evenement.getDescription()}}</p>
+                        <p class="card-title">{{evenement.getDateEevenement()|date("d/m/Y")}}</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn-details" style="background-color:orange; border: solid 2px; border-radius: 25px; margin: 5px; text-decoration: none; color: white; padding: 5px 14px; height: 40px;">Détails</button>
+                        
+                        <a href={{path('participation_delete',{id:evenement.id})}} style="background-color:red; border: solid 2px; border-radius: 25px; margin: 
+                        5px; text-decoration: none; color: white;  padding: 5px 14px ; height: 40px; display:inline-block; vertical-align:baseline;">Annulation</a>
+                    </div>
+                </div>
+        
+                <div class="show-hide d-none">
+                    {% include "users/ActionRequete.html.twig" %}
+                    {% include "users/ActionDon.html.twig" %}
+                </div>
+
+                <script>
+                    const ActionBtn = document.querySelector('.btn-details');
+                    const actiondiv = document.querySelector('.show-hide');
+                    ActionBtn.addEventListener('click',()=>{
+                        actiondiv.classList.toggle('d-none');
+                    })
+
+                    const allCategories = document.querySelectorAll('.demande_left');
+                    for(let ind=0; ind<allCategories.length; ind++)
+                        allCategories[ind].addEventListener('click', function(){
+                            if(!this.classList.contains('categorie_chosen')){
+                                this.classList.add('categorie_chosen');
+                            }
+                            else{
+                                this.classList.remove('categorie_chosen');
+                            }
+                        });
+                </script> 
+            </div>
+        {% endif %}
+        </div>
+
+    
+        <div class="mt-5 user-space-container">
+            <h5 class="user-space-title">Voici les actions que vous avez menés</h5>
+
+            <div class="row mt-3">
+                <div class="column">
+                    <div class="card-txt">
+                        <h5>Nombre de participation</h5><br>
+                        <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
+                        <span class="font-weight-bold">24</span> Fois
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card-txt">
+                        <h5>Nombre de produits demandés</h5><br>
+                        <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
+                        <span class="font-weight-bold">24</span> Fois
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card-txt">
+                        <h5>Nombre de dons</h5><br>
+                        <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
+                        <span class="font-weight-bold">24</span> Fois
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

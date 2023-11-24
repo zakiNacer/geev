@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{ asset('assets/styles/home.css') }}>
+{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <div class="accueil_main">
+            <div class="accueil_main_content container">
+                <div class="accueil_main_left">
+                    <img class="main_left_img" src={{asset('/assets/img/accueil-left.png')}}>
+                    
+                    <a class="main_left_link" href="/evenements">Je participe</a>
+                </div>
+                
+                <div class="accueil_main_right">
+                        <img class="main_right_img" src={{asset('/assets/img/accueil-right.png')}}>
+                </div>
+            </div>
+        </div>
+        
+        <div class="accueil_actualites">
+            <div class="accueil_actualites_content container">
+                <h1 class="accueil_actualites_h">Dernières actualités</h1>
+                
+                <div class="accueil_actualites_list_container">
+                    
+                    <div class="accueil_actualites_list">
+                        <div class="accueil_actualites_item">
+                            <div class="accueil_actualites_img_container">
+                                <img class="accueil_actualites_img" src={{asset('assets/img/reseaux.png')}} style="object-fit: fill;">
+                            </div>
+                            
+                            <p class="accueil_actualites_p">
+                                Retrouvez nous sur nos réseaux sociaux !
+                            </p>
+                        </div>
+                        
+                        <div class="accueil_actualites_item">
+                            <div class="accueil_actualites_img_container">
+                                <img class="accueil_actualites_img" src={{asset('/assets/img/agence.png')}} style="object-fit: fill;">
+                            </div>
+                            
+                            <p class="accueil_actualites_p">
+                                Et si on faisais connaissance ?
+                            </p>
+                        </div>
+                        
+                        <div class="accueil_actualites_item">
+                            <div class="accueil_actualites_img_container">
+                                <img class="accueil_actualites_img" src={{asset('/assets/img/action.png')}}>
+                            </div>
+                            
+                            <p class="accueil_actualites_p">
+                                Découvrez notre tout 1er projet !
+                            </p>
+                        </div>
+                        
+                        <div class="accueil_actualites_item">
+                            <div class="accueil_actualites_img_container">
+                                <img class="accueil_actualites_img" src={{asset('/assets/img/evenement.png')}} style="object-fit: fill;">
+                            </div>
+                            
+                            <p class="accueil_actualites_p">
+                                Give & collect : les 3 types de dons
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a class="accueil_actualites_link" href="#">En savoir plus</a>
+            </div>
+        </div>
+        
+        
+        
+        <div class="accueil_dons_types">
+            <div class="accueil_dons_types_content container">
+                <h1 class="accueil_section_h">3 types de dons :</h1>
+                
+                <p class="accueil_dons_types_p">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
+                
+                <div class="accueil_dons_types_list">
+                    <div class="accueil_dons_types_item">
+                        <p class="dons_types_title">Produits alimentaires</p>
+                        
+                        <div class="dons_types_list">
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accueil_dons_types_item">
+                        <p class="dons_types_title">PFournitures scolaires</p>
+                        
+                        <div class="dons_types_list">
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                        </div>
+                    </div>
+                    
+                    <div class="accueil_dons_types_item">
+                        <p class="dons_types_title">roduits hygiène</p>
+                        
+                        <div class="dons_types_list">
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                            <p class="dons_types_item">type</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a class="accueil_dons_types_link" href="#">En savoir plus</a>
+            </div>
+        </div>
+
+        <div class="accueil_confiance">
+            <div class="accueil_confiance_content container">
+                <h1 class="accueil_section_h">Ils nous ont fait confiance</h1>
+                                    
+                <div class="accueil_confiances_list">
+                    <div class="accueil_confiance_item">
+                        <p class="confiance_commentaire">
+                            Soyez le premier à donner votre témoignage !
+                        </p>
+                        
+                        <p class="confiance_title">Crous Créteil</p>
+                    </div>
+                    
+                    <div class="accueil_confiance_item">
+                        <p class="confiance_commentaire">
+                            Soyez le premier à donner votre témoignage !
+                        </p>
+                        
+                        <p class="confiance_title">Campus de Bobigny</p>
+                    </div>
+                </div>
+                
+                <div class="rounded_buttons">
+                    <div class="rounded_btn rounded_btn_active"></div>
+                    <div class="rounded_btn"></div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{asset('assets/js/home.js')}}"></script>
+{% endblock %}

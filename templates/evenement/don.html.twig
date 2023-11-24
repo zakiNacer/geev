@@ -1,0 +1,42 @@
+{% extends 'evenement/read.html.twig' %}
+
+{% block formContent %}
+    <h5 class="section_h">Déclarez vos dons</h5>
+    <p>Il est conseillé de ramener vos dons avant la date de l'evenement : <span style="text-decoration:underline">{{evenement.getDateEevenement()|date("d/m/Y")}}</span></p>
+
+    <p class="categories_h">Selectionnez la catégorie des produits</p>
+
+    <div class="categories">
+        {% for categorie in categories %}
+        <div class="demande_categorie">
+            <div class="categorie_container">
+                <p class="demande_categorie_title">{{ categorie[0].getNom() }}</p>
+
+                <div class="categorie_content">
+                    <div class="demande_left">
+                        <div class="demande_categorie_img_container">
+                            <img src="" class="demande_categorie_img">
+                        </div>
+                    </div>
+                    
+                    <div class="demande_right">
+                        <div class="produits_list">
+                            {% for produit in categorie[1] %}
+                            <div class="produit_item">
+                                <input class="produit_checkbox" type="checkbox" name="produits[]" value={{produit.id}}> <!-- value will be id of product -->
+                                <img src="" class="produit_item_img">
+                                <p class="produit_item_title">{{ produit.getNomPdroduit() }} </p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="evenement_end">
+        <button class="evenement_submit_btn"type="submit">Participer</button>
+    </div>
+{% endblock %}

@@ -1,0 +1,271 @@
+
+body{
+    position: relative;
+}
+.hi{
+    background-color: yellow;
+}
+.btn{
+    color: black;
+    background-color: yellow;
+    padding: 5px;
+    border: 5px;
+}
+
+
+.footer{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.behind_popup{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #dadada6a;
+
+    z-index: 2;
+}
+
+.hidden{
+    display: none;
+}
+
+/*====== Evenement =====*/
+
+h1,h2,h3,h4,h5,h6,p,span,ul,li{
+    margin: 0;
+    padding: 0; font-family: 'sofia pro';
+}
+.diviseur{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: 1px;
+    background-color: #d1d1d1;
+    border: none;
+}
+.wrapper{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lavender;
+}
+.personalised_container{
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+.evenement_content{
+    margin-top: 50px;
+}
+.evenement_description{
+
+}
+.evenement_img_container{
+    margin-top: 15px;
+    width: 100%;
+    height: 260px;
+    position: relative;
+}
+.evenement_img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.descriptif{
+    margin-top: 20px;
+}
+.descriptif_p{
+    font-size: 16px;
+}
+.descriptif_icons{
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+.descriptiof_icon_item{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.icon_img{
+    width: 15px;
+    height: 15px;
+}
+.icon_text{
+    font-size: 15px;
+}
+.date_span{
+    font-weight: 600;
+}
+
+
+.evenement_demandes{
+    margin-top: 40px;
+}
+
+.categories_h{
+    margin-top: 25px;
+}
+.categories{
+    
+}
+.demande_categorie{
+    margin-left: 8px;
+    width: 100%;
+}
+.demande_categorie:first-of-type{
+    margin-top: 5px;
+}
+.demande_categorie:not(:first-of-type){
+    margin-top: 15px;
+}
+.categorie_content{
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.demande_left{
+    position: relative;
+
+    cursor: pointer;
+}
+.demande_left::before{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -20px;
+
+    border-radius: 50%;
+    background-color: black;
+}
+.demande_categorie_title{
+    font-weight: 600;
+}
+.demande_categorie_img_container{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.demande_categorie_img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+
+    border: 1px #AECC51 solid;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.categorie_chosen .demande_categorie_img{
+    border: 4px #AECC51 solid;
+}
+.categorie_chosen + .demande_right .produits_list{
+    left: 0;
+}
+
+.demande_right{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.produits_list{
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    left: 100%;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    flex-wrap: wrap;
+
+
+    transition: left .7s;
+    border: 2px #c1c1c1 solid;
+    border-radius: 10px;
+}
+.produit_item{
+    padding: 4px 10px 4px 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+
+    border: 1px black solid;
+    border-radius: 50px;
+    position: relative;
+
+    cursor: pointer;
+}
+.produit_selected{
+    border: 1px #96b537 solid;
+    background-color: #eaf7c3;
+}
+.produit_checkbox{
+    position: absolute;
+    left: 15px;
+    z-index: -1;
+}
+.produit_item_img{
+    width: 40px;
+    height: 40px;
+
+    box-sizing: border-box;
+    border: 1px #a5b86c solid;
+    border-radius: 50%;
+}
+.produit_item_title{
+    margin: 0;
+    font-weight: 600;
+}
+
+
+/* Evenement dons sections */
+.evenement_dons{
+    margin-top: 40px;
+}
+
+
+/* Evenement fin */
+.evenement_end{
+    margin-top: 60px;
+    text-align: center;
+}
+.evenement_submit_btn{
+	padding: 10px 20px;
+	align-self: center;
+	
+	background-color: red;
+	color: white;
+	text-transform: uppercase;
+	
+	font-weight: 700;
+	
+    border: none;
+    outline: none;
+	border-radius: 100px;
+    cursor: pointer;
+}
+/*===== Evenement fin =====*/
+
+
+
+@media screen and (max-width:840px){
+    .behind_popup{  
+        transform: translateY(-80px);
+    }
+}

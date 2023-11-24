@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{ asset('assets/styles/style_auth.css') }}>
+{% endblock %}
+{% block body %}
+
+        <div class="wrapper">
+			<div class="auth_forms">
+				<div class="auth_forms_content container">
+				  <form method="post" class="connexion_form auth_form">
+					{% if error %}
+        				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+   					 {% endif %}
+
+					{% if app.user %}
+						<div class="mb-3">
+							You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+						</div>
+					{% endif %}
+						<h3 class="form_title">Connexion</h3>
+
+						<button class="question_btn" type="button">Vous êtes déjà inscrit ?</button>
+
+						<div class="form_field">
+							<label for="identifiant" class="form_field_label">Identifiant</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+
+						
+						</div>
+
+						<div class="form_field">
+							<label for="mdp" class="form_field_label">Mot de passe</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+							
+						</div>
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                        <button class="submit_btn" type="submit">
+                              Se connecter
+                        </button>
+
+						<a href="{{path('app_forgot_password_request')}}" style="background-color:orange; border: solid 2px; border-radius: 25px; margin: 
+                        5px; text-decoration: none; color: white;  padding: 15px  ;">Mot de passe oublié ?</a>
+					</form>
+
+					<img src={{asset('/assets/img/panier.png')}} class="panier_img">
+
+					
+				</div>
+			</div>
+			
+		</div>
+	
+		{# <script type="text/javascript" src="auth.js"></script> #}
+{% endblock %}

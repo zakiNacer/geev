@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{ asset('assets/styles/contact.css') }}>
+{% endblock %}
+
+{% block body %}
+
+
+
+     <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class=" img-contact mt-5">
+                        
+                        <img src="{{asset('images/contact.png')}}">
+                    </div>
+                </div>
+
+                <div class="col-md-6">  
+                    <!-- le responsive -->
+                    <div class="container py-4">
+                        
+                        <h5 style="color:red; font-size: 20px;"id="error"></h5> 
+                        <!-- start contact -->
+                        <form action="{{path('app_message')}}" method="POST">
+                           
+                            
+                            <!-- Name input -->
+                            <div class="mb-3">
+                                <label class="form-label" for="name">Name</label>
+                                <input class="form-control" id="name" name="nome" type="text" placeholder="Name" />
+                            </div>
+                        
+                            <!-- Email address input -->
+                            <div class="mb-3">
+                                <label class="form-label" for="emailAddress">Email Address</label>
+                                <input class="form-control" id="emailAddress" name="emailAddress" type="email" placeholder="Email Address" />
+                            </div>
+                        
+                            <!-- Message input -->
+                            <div class="mb-3">
+                                <label class="form-label" for="message">Message</label>
+                                <textarea class="form-control" name="message" type="text" id="text"
+                                placeholder="Message" style="height: 10rem;"></textarea>
+                            </div>
+
+                           
+                            <!-- Form submit button -->
+                             <div class="d-grid"> 
+                                <button class="btn btn-warning btn-lg" name="submit" id="formsubmit" type="submit">Submit</button>
+                             </div> 
+                        
+                        </form>
+                        
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        <!-- fin de formulaire contact -->
+
+       
+    </section>
+{% endblock %}

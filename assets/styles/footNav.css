@@ -1,0 +1,443 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    padding: 0;
+}
+
+
+.header_container{
+    width: 100%;
+    box-shadow: 0 2px 10px -4px gray;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
+
+.principal{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: white;
+}
+.link_items{
+    gap: 60px;
+    
+    display: flex;
+    list-style: none;
+    margin: 0;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.link_items h5{
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.barItems{
+    display: none;
+}
+
+/* .five{display: flex; justify-content: space-between;} */
+/* .six{flex:1; display: flex; justify-content: end;} */
+
+.dropdown{
+    width: max-content;
+   flex-direction: column;
+   list-style: none;
+   position: absolute;
+    z-index: 10;
+
+}
+.dropdown li:not(:first-of-type){
+    margin-top: 5px;
+}
+.dropdown a{
+    padding: 3px 10px;
+    display: block;
+    text-align: center;
+}
+
+ul li ul.dropdown{
+    background: white;
+    padding:8px 20px;
+    display: none;
+    box-shadow: 0 0 10px gray;
+    
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+ul li {
+    
+    font-size: 16px;
+    position: relative;
+}
+.dropdown a:hover{
+    padding: 3px 10px;
+    background: rgb(233, 168, 47);
+    color: white;
+}
+.navbar_item h5:hover + ul.dropdown, .dropdown:hover{
+    display: block;
+}
+
+.header_right{
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.auth_button{
+    border :solid 1px;
+    border-radius: 25px;
+    color: black;
+    margin: 5px;
+    padding:5px 9px;
+    text-decoration: none;
+
+}
+.auth_button:hover{
+    background-color: orange;
+    color: whitesmoke;
+}
+.icons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+}
+
+.icons i {
+    margin: 10px;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+.header_container .container{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.six img{ width: 138px; width: 138px; }
+.panier img{display: none;}
+.logoImg{display: none;}
+.link{
+    display: none;
+}
+.link a{
+    padding: 10px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* image authentification mobile */
+.logoImg{    
+    display: none;
+    margin: 0 10px 0 20px;
+}
+
+.navbar_burger{
+    margin-left: 10px;
+    min-width: 40px;
+    width: 40px;
+    min-height: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: inherit;
+    display: none; 
+    position: relative;
+    z-index: 2;
+    /* top: 20px;
+    right: 20px; */
+
+    cursor: pointer;
+}
+.burger-bar,
+.burger-bar::before,
+.burger-bar::after{
+    display:block;
+    width: 40px;
+    height: 3px;
+    position: relative;
+    border-radius: 3px;
+    transition: all .3s ease-in-out;
+}
+.burger-bar::before,
+.burger-bar::after{
+    content: "";
+    position: absolute;
+    left: 0;
+}
+.burger-bar{
+    height: 5px;
+    background-color: #41A6DD;
+}
+.burger-bar::before{
+    transform: translateY(-11px);
+    background-color: #F29019;
+}
+.burger-bar::after{
+    transform: translateY(12px);
+    background-color: #AECC51;
+}
+
+
+@media(max-width:1240px){
+    .link_items{
+        gap: 30px;
+    }
+
+    .b2b{
+		flex: 2 !important;
+	}
+}
+@media(max-width:1050px){
+    .six img{
+        margin: 0 -30px;
+    }
+    .link_items{
+        gap: 15px;
+    }
+    .auth_buttons{
+        margin-top: auto;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .b1{
+        max-width: 700px !important;
+    }
+}
+
+/* Menu version mobile */
+@media screen and (max-width:840px){
+    /*mobile versions header is fixed, so the content of site is not full visible, let's add padding top to body, so make him go down */
+    body{
+        padding-top: 80px !important;
+    }
+    .header_right{
+        display: none;
+    }
+    .six{display: none;}
+    .logo Img{display: none;}
+    .link_items{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        align-items: center;
+        position: fixed;
+        z-index: 2;
+        right: -100vw;
+        top: 0;
+        height: 100%;
+        padding-top: 50px;
+        visibility: hidden;
+        gap: 0;
+        background-color:whitesmoke;    
+        transition: all .5s;
+    }
+    .show-nav + .link_items{
+        right: 0;
+        visibility: visible;
+
+    }
+    .navbar_burger{
+        display: block;
+        /*position:fixed;
+        top: 1rem;
+        right:100px;*/
+    }
+    
+    .show-nav ~ .navbar_burger .burger-bar{
+        width: 0;
+        background: transparent;
+    }
+    .show-nav ~ .navbar_burger .burger-bar::before{
+        transform: rotate(45deg);
+    }
+    .show-nav ~ .navbar_burger .burger-bar::after{
+        transform: rotate(-45deg);
+    }
+
+    .header_container{
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    /* nav elements */
+    .barItems{
+        
+        display: flex;
+        align-items: center;
+        z-index: 1;
+    }
+    /* lien don desktop */
+    .donBtn{
+        align-items: end;
+        background:red;
+        border :solid 1px;
+        border-radius: 25px;
+        margin: auto;
+        padding:5px;
+        color: white;
+        
+    }
+    .link{
+        margin-left: auto;
+        display: block;
+    }
+    .logoImg{
+        display: block;
+    }
+    .logoImg img {
+        
+        width: 40px;
+        height: 40px;
+       
+    }
+    .panier img {
+        height: 80px;
+        width: 80px;
+        display: block;
+       
+    }
+    
+    .b1{
+        padding: 0 20px !important;
+        max-width: 600px !important;
+    }
+
+    .b2{
+        margin-top: 70px !important;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .b2c{
+        order: 1;
+    }
+    .b2b{
+        margin: 0 20px 20px 20px;
+        order: 2;
+        text-align: center;
+    }
+    .b2a{
+        order: 3;
+    }
+}
+
+@media(max-width:700px){
+    .b1{
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+
+   
+/* FOOTER */
+/* FOOTER */
+.footer{
+background-color: black;
+}
+.b1{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+width: 100%;
+max-width: 800px;
+margin: auto;
+}
+
+.b1a{
+width: max-content;
+}
+.b1a_content{
+    margin-top: 20px;
+    color: white;
+}
+.b1a_content a{
+    color: white;
+}
+.b2{
+    margin-top: 10px;
+    display:flex;
+    align-items: center;
+}
+.b2a{
+flex:1;
+display: flex;
+justify-content: center;
+
+}
+.b2a img{
+height: 90px;
+width: 90px;
+/* margin-right: 50px; */
+}
+.b2b{
+flex:1;
+display: flex;
+justify-content: center;
+
+}
+.b2c{
+flex:1;
+display: flex;
+justify-content: center;
+
+}
+.b2c i{
+padding: 10px;
+}
+.b1a h4{display: flex; color: white;}
+.b1b h4{display: flex; color: white;}
+.b1c h4{display: flex; color: white;}
+.b2a h5{display: flex; color: white;}
+.b2b p{display: flex; color: white;}
+.i i { color: white;}
+
+/* résponsive  footer*/
+
+@media (max-width:500px){
+
+/* header */
+
+.social-icons{
+display: none;
+}
+
+
+/* footer */
+.b1{
+display:flex;
+flex-direction: column;
+
+}
+.b2{
+display:flex;
+flex-direction: column;
+}
+.b2c:nth-child(2){
+order:1;
+}
+.b2b{
+order:1;
+}
+
+
+
+
+
+}   

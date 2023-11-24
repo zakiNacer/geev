@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href={{ asset('assets/styles/inscription.css') }}>
+{% endblock %}
+{% block body %}
+
+        <div class="wrapper">
+			<div class="inscription_form_container">
+				<div class="inscription_form_content container">
+					{# <form class="inscription_form"> #}
+                    {{ form_start(registrationForm) }}
+						<h3 class="form_title">Inscription</h3>
+
+						<a href="/login" class="question_btn" type="button">Vous avez déja un compte ?</a>
+
+                        <div class="form_radio_field">
+                            <p class="civilite_p">Civilité :</p>
+                            <div class="check_inputs">
+                                <div class="check_input">
+                                    {# <input class="form_field_radio" id="homme_radio" type="radio" name="civilite"> #}
+                                    {# <label for="homme_radio" class="form_field_label">Homme</label> #}
+                                     {{ form_widget(registrationForm.civilite,{'attr': {'class': 'form_field_input'}}) }}
+                                     {# {{ form_widget(registrationForm.nom, {'attr': {'class': 'form_field_input'}}) }} #}
+                                </div>
+                                
+                                {# <div class="check_input">
+                                    <input class="form_field_radio" id="femme_radio" type="radio" name="civilite">
+                                    <label for="femme_radio" class="form_field_label">Femme</label>
+                                </div> #}
+                            </div>
+                        </div>
+
+						<div class="form_field">
+                            <div class="input_field">
+                                <label for="nom" class="form_field_label required_input_label">Nom</label>
+                               
+                                {{ form_widget(registrationForm.nom, {'attr': {'class': 'form_field_input'}}) }}
+                                
+                               
+
+                            </div>
+
+							<div class="input_field">
+                                <label for="prenom" class="form_field_label required_input_label">Prénom</label>
+                                
+                                {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form_field_input'}}) }}
+                               
+                            </div>
+                        </div>
+
+						<div class="form_field">
+                            <div class="input_field">
+                                <label for="pseudo" class="form_field_label required_input_label">date de naissance</label>
+                              
+                               {{ form_widget(registrationForm.datede_naissance, {'attr': {'class': 'form_field_input'}}) }}
+                            </div>
+                            
+							 <div class="input_field">
+                                <label for="numero" class="form_field_label">Numéro de téléphone</label>
+                              
+                                 {{ form_widget(registrationForm.numero, {'attr': {'class': 'form_field_input'}}) }}
+                            </div>
+                        </div>
+
+						
+
+						<div class="form_field">
+                            <div class="input_field">
+                                <label for="email" class="form_field_label">Adresse mail</label>
+                                
+                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form_field_input'}}) }}
+                            </div>
+
+                             <div class="input_field">
+                                <label for="mdp" class="form_field_label required_input_label">Mot de passe</label>
+                                 {{ form_widget(registrationForm.plainPassword,{'attr':{'class':'form_field_input'
+                                 }}) }}
+                            </div>
+							
+                        </div>
+
+
+						<div class="case_check">
+							 {{ form_widget(registrationForm.agreeTerms,{'attr':{'class':'form_field_input'
+                                 }}) }}
+    						<label for="infos" class="form_checkbox_label required_input_label">En soumettant ce formulaire, j’accepte que mes informations soient utilisés uniquement........</label>
+						</div>
+                        <button type="submit" class="submit_btn">Confirmer</button>
+						
+					
+                     {{ form_widget(registrationForm) }}
+                    
+				</div>
+			</div>
+			
+		</div>
+
+
+
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+    
+
+    {# <h1>Inscription</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.nom) }}
+        {{ form_row(registrationForm.prenom) }}
+        {{ form_row(registrationForm.numero) }}
+        {{ form_row(registrationForm.datede_naissance) }}
+        {{ form_row(registrationForm.civilite) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }} #}
+{% endblock %}
